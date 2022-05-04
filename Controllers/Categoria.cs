@@ -9,7 +9,14 @@ namespace Controllers
     {
         public static Categoria IncluirCategoria(string Nome, string Descricao)
         {
-            CategoriaController.ValidaInclusao(Nome, Descricao);
+            if(String.IsNullOrEmpty(Nome))
+            {
+                throw new Exception("Nome inválido");
+            }
+            if(String.IsNullOrEmpty(Descricao))
+            {
+                throw new Exception("Descrição inválida");
+            }
 
             return new Categoria(Nome, Descricao);
         }
