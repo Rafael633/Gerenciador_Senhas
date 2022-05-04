@@ -64,31 +64,5 @@ namespace Controllers
         {
             return Categoria.GetCategorias();
         }
-
-        public static void ValidaInclusao(string PrimeiroValor, string SegundoValor)
-        {
-            if(String.IsNullOrEmpty(PrimeiroValor))
-            {
-                throw new Exception($"{PrimeiroValor} inválido(a)");
-            }
-
-            if(String.IsNullOrEmpty(SegundoValor))
-            {
-                throw new Exception($"{SegundoValor} inválido(a)");
-            }
-        }
-
-        public static void ValidaAlterar(string PrimeiroValor, string SegundoValor)
-        {
-            if(!String.IsNullOrEmpty(PrimeiroValor))
-            {
-                throw new Exception($"{PrimeiroValor} inválido(a)");
-            }
-            
-            if(!String.IsNullOrEmpty(SegundoValor))
-            {
-                throw new Exception($"{SegundoValor} inválido(a)");
-            }
-        }
     }
 }
