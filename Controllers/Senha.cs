@@ -86,7 +86,7 @@ namespace Controllers
 
         public static IEnumerable<Senha> VisualizarSenha()
         {
-            return Senha.GetSenha();
+            return Senha.GetSenhas();
         }
     }
 }
