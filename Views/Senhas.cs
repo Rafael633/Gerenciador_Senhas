@@ -81,14 +81,28 @@ public class Senhas : Form //Senha
         form.Show();
     }
     private void btnSenhaDeletar(object sender, EventArgs e)
-    {
-        ListViewItem itemSelecionado = listView.SelectedItems[0];
-        new SenhaDeletar(Convert.ToInt32(itemSelecionado.Text)).Show();
+    { 
+        if (listView.SelectedItems.Count > 0)
+        {
+            ListViewItem itemSelecionado = listView.SelectedItems[0];
+            new SenhaDeletar(Convert.ToInt32(itemSelecionado.Text)).Show();
+        }
+        else
+        {
+            MessageBox.Show("Não há itens selecionados");
+        }
     }
     private void btnSenhaAtualizar(object sender, EventArgs e)
-    {
-        ListViewItem itemSelecionado = listView.SelectedItems[0];
-        new SenhaInserir(Convert.ToInt32(itemSelecionado.Text)).Show();
+    { 
+        if (listView.SelectedItems.Count > 0)
+        {
+            ListViewItem itemSelecionado = listView.SelectedItems[0];
+            new SenhaInserir(Convert.ToInt32(itemSelecionado.Text)).Show();
+        }
+        else
+        {
+            MessageBox.Show("Não há itens selecionados");
+        }
     }
 
     private void btnCancelClick(object sender, EventArgs e)
