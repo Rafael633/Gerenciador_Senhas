@@ -78,13 +78,27 @@ public class Tags : Form //Tags
     }
     private void btnTagsDeletar(object sender, EventArgs e)
     {
-        ListViewItem itemSelecionado = listView.SelectedItems[0];
-        new TagsDeletar(Convert.ToInt32(itemSelecionado.Text)).Show();
+        if (listView.SelectedItems.Count > 0)
+        {
+            ListViewItem itemSelecionado = listView.SelectedItems[0];
+            new TagsDeletar(Convert.ToInt32(itemSelecionado.Text)).Show();
+        }
+        else
+        {
+            MessageBox.Show("Não há itens selecionados");
+        }
     }
     private void btnTagsAtualizar(object sender, EventArgs e)
     {
-        ListViewItem itemSelecionado = listView.SelectedItems[0];
-        new TagsInserir(Convert.ToInt32(itemSelecionado.Text)).Show();
+        if (listView.SelectedItems.Count > 0)
+        {
+            ListViewItem itemSelecionado = listView.SelectedItems[0];
+            new TagsInserir(Convert.ToInt32(itemSelecionado.Text)).Show();
+        }
+        else
+        {
+            MessageBox.Show("Não há itens selecionados");
+        }
     }
 
     private void btnCancelClick(object sender, EventArgs e)
