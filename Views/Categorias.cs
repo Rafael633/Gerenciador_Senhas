@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Threading;
 using System.IO;
 using Models;
+using Controllers;
 
 public class Categorias : Form //Categorias
 {
@@ -40,6 +41,14 @@ public class Categorias : Form //Categorias
             listView.GridLines = true;
             listView.AllowColumnReorder = true;
             listView.Sorting = SortOrder.Ascending;
+
+            foreach (Categoria item in CategoriaController.VisualizarCategoria())
+            {
+                newLine = new ListViewItem(item.Id.ToString());
+                newLine.SubItems.Add(item.Nome);
+                newLine.SubItems.Add(item.Descricao);
+                listView.Items.Add(newLine);
+            }
 
             btnCancel = new Button();
             btnCancel.Text = "Cancelar";

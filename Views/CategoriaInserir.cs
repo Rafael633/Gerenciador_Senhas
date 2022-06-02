@@ -70,6 +70,7 @@ public class CategoriaInserir : Form //Inserir e Atualizar Categoria
         this.Text = "Inserir Categoria ";
         this.StartPosition = FormStartPosition.CenterScreen;
     }
+    
     private void btnConfirmClick(object sender, EventArgs e)
     {
         try
@@ -90,6 +91,8 @@ public class CategoriaInserir : Form //Inserir e Atualizar Categoria
 
     public CategoriaInserir(int id)
     {
+        this.id = id;
+
         this.ClientSize = new System.Drawing.Size(300, 215);
 
         lblNome = new Label();
@@ -149,9 +152,9 @@ public class CategoriaInserir : Form //Inserir e Atualizar Categoria
             MessageBox.Show("Dados alterados com sucesso.");
             this.Close();
         }
-        catch (System.Exception)
+        catch (Exception err)
         {
-            MessageBox.Show("Não foi possível alterar os dados.");
+            MessageBox.Show($"Não foi possível alterar os dados. {err.Message}");
         }
     }
     private void btnCancelClick(object sender, EventArgs e)

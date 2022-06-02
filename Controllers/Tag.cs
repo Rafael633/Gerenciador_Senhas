@@ -26,6 +26,8 @@ namespace Controllers
                 Descricao = Descricao;
             }
 
+            Tag.AlterarTag(Id, Descricao);
+
             return tag;
         }
 

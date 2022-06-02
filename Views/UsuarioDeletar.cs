@@ -22,6 +22,8 @@ public class UsuarioDeletar : Form //Deletar Usuario
 
     public UsuarioDeletar(int id)
     {
+        this.id = id;
+
         lblDeletar = new Label();
         lblDeletar.Text = $"Deseja realmente excluir esse item? (ID: {id})";
         lblDeletar.Size = new Size(200, 40);
@@ -62,9 +64,9 @@ public class UsuarioDeletar : Form //Deletar Usuario
             MessageBox.Show("Usuário deletado com sucesso!");
             this.Close();
         }
-        catch
+        catch(Exception err)
         {
-            MessageBox.Show("Erro ao deletar usuário.");
+            MessageBox.Show($"Erro ao deletar usuário. {err.Message}");
         }
     }
 

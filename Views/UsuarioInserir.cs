@@ -56,6 +56,7 @@ public class UsuarioInserir : Form //Inserir e Atualizar Usuario
         this.txtSenha = new TextBox();
         this.txtSenha.Location = new Point(10, 170);
         this.txtSenha.Size = new Size(280, 30);
+        this.txtSenha.PasswordChar = '*'; 
 
         btnConfirm = new Button();
         btnConfirm.Text = "Confirmar";
@@ -106,7 +107,9 @@ public class UsuarioInserir : Form //Inserir e Atualizar Usuario
 
     public UsuarioInserir(int id)
     {
-        this.ClientSize = new System.Drawing.Size(300, 215);
+        this.id = id;
+        
+        this.ClientSize = new System.Drawing.Size(300, 285);
 
         this.lblNome = new Label();
         this.lblNome.Text = "Nome";
@@ -133,16 +136,17 @@ public class UsuarioInserir : Form //Inserir e Atualizar Usuario
         this.txtSenha = new TextBox();
         this.txtSenha.Location = new Point(10, 170);
         this.txtSenha.Size = new Size(280, 30);
+        this.txtSenha.PasswordChar = '*'; 
 
         btnConfirm = new Button();
         btnConfirm.Text = "Confirmar";
-        btnConfirm.Location = new Point(65, 165);
+        btnConfirm.Location = new Point(65, 215);
         btnConfirm.Size = new Size(80, 30);
         btnConfirm.Click += new EventHandler(this.btConfirmClick);
 
         btnCancel = new Button();
         btnCancel.Text = "Cancelar";
-        btnCancel.Location = new Point(155, 165);
+        btnCancel.Location = new Point(155, 215);
         btnCancel.Size = new Size(80, 30);
         btnCancel.Click += new EventHandler(this.btnCancelClick);
 
@@ -166,6 +170,7 @@ public class UsuarioInserir : Form //Inserir e Atualizar Usuario
     private void btConfirmClick(object sender, EventArgs e)
     {            
         Usuario usuario = UsuarioController.GetUsuario(id);
+
         try
         {
             UsuarioController.AlterarUsuario(
@@ -174,6 +179,7 @@ public class UsuarioInserir : Form //Inserir e Atualizar Usuario
                 txtEmail.Text,
                 txtSenha.Text
             );
+
             MessageBox.Show("Dados alterados com sucesso.");
             this.Close();
         }
