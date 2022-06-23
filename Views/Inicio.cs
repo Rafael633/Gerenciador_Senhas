@@ -23,6 +23,8 @@ public class Inicio : Form //Tela Inicial
 
     public Inicio()
     {
+        Size = new Size(320, 245);
+        
         this.btnCategorias = new Button();
         this.btnCategorias.Text = "Categorias";
         this.btnCategorias.Location = new Point(40, 60);
