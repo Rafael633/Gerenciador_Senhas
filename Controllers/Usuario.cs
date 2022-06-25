@@ -1,6 +1,8 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.Data;
+using System.Text.RegularExpressions;
 using Models;
 
 namespace Controllers
@@ -9,17 +11,19 @@ namespace Controllers
     {
         public static Usuario IncluirUsuario(string Nome, string Email, string Senha)
         {
+            Regex validateEmailRegex = new Regex("^\\S+@\\S+\\.\\S+$");
+
             if(String.IsNullOrEmpty(Nome))
             {
                 throw new Exception("Nome inválido");
             }
 
-            if(String.IsNullOrEmpty(Email))
+            if(!validateEmailRegex.IsMatch(Email))
             {
                 throw new Exception("Email inválido");
             }
 
-            if(String.IsNullOrEmpty(Senha))
+            if (String.IsNullOrEmpty(Senha) || Senha.Length < 8)
             {
                 throw new Exception("Senha inválida");
             }
@@ -33,6 +37,7 @@ namespace Controllers
 
         public static Usuario AlterarUsuario(int Id, string Nome, string Email, string Senha)
         {
+            Regex validateEmailRegex = new Regex("^\\S+@\\S+\\.\\S+$");
             Usuario usuario = GetUsuario(Id);
 
             if(!String.IsNullOrEmpty(Nome))
@@ -40,14 +45,30 @@ namespace Controllers
                 Nome = Nome;
             }
 
-            if(!String.IsNullOrEmpty(Email))
+            if (validateEmailRegex.IsMatch(Email))
             {
                 Email = Email;
+            }
+            else
+            {
+                throw new Exception("Email inválido");
             }
 
             if(!String.IsNullOrEmpty(Senha) && !BCrypt.Net.BCrypt.Equals(Senha, usuario.Senha))
             {
-                Senha = BCrypt.Net.BCrypt.HashPassword(Senha);
+                if (String.IsNullOrEmpty(Senha) || Senha.Length < 8)
+                {
+                    throw new Exception("Senha inválida");
+                }
+                else
+                {
+                    Senha = BCrypt.Net.BCrypt.HashPassword(Senha);
+                    usuario.Senha = Senha;
+                }
+            }
+            else
+            {
+                throw new Exception("Senha inválida");
             }
 
             Usuario.AlterarUsuario(Id, Nome, Email, Senha);

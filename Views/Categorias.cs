@@ -21,6 +21,7 @@ public class Categorias : Form //Categorias
 
     ListView listView;
     ListViewItem newLine;
+    
     public Categorias()
     {
             this.ClientSize = new System.Drawing.Size(500, 450);
