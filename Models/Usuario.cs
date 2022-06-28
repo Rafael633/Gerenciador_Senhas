@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System;
 using Repository;
 using System.Windows.Forms;
 
@@ -101,13 +102,20 @@ namespace Models
 
         public static void Auth(string Email, string Senha)
         {
-            Usuario usuario = GetUsuarios()
-                .Where(it => it.Email == Email 
-                    && BCrypt.Net.BCrypt.Verify(Senha, it.Senha)
-                )
-                .First();
-            
-            UsuarioAuth = usuario;
+            try 
+            {
+                Usuario usuario = GetUsuarios()
+                    .Where(it => it.Email == Email 
+                        && BCrypt.Net.BCrypt.Verify(Senha, it.Senha)
+                    )
+                    .First();
+                
+                UsuarioAuth = usuario;
+            }
+            catch
+            {
+                throw new Exception("Usuário ou senha inválido.");
+            }
         }
     }
 }
