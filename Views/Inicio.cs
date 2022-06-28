@@ -23,10 +23,8 @@ public class Inicio : Form //Tela Inicial
 
     public Inicio()
     {
-        this.lblLogin = new Label();
-        this.lblLogin.Text = "Olá Fulano";
-        this.lblLogin.Location = new Point(117, 20);
-
+        Size = new Size(320, 245);
+        
         this.btnCategorias = new Button();
         this.btnCategorias.Text = "Categorias";
         this.btnCategorias.Location = new Point(40, 60);
