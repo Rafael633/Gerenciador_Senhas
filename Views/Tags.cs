@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Threading;
 using System.IO;
 using Models;
+using Controllers;
 
 public class Tags : Form //Tags
 {
@@ -39,6 +40,13 @@ public class Tags : Form //Tags
         listView.GridLines = true; 
         listView.AllowColumnReorder = true; 
         listView.Sorting = SortOrder.Ascending;
+
+        foreach (Tag item in TagController.VisualizarTag())
+        {
+            newLine = new ListViewItem(item.Id.ToString());
+            newLine.SubItems.Add(item.Descricao);
+            listView.Items.Add(newLine);
+        }
     
         btnCancel = new Button();    
         btnCancel.Text = "Cancelar";    
@@ -78,13 +86,27 @@ public class Tags : Form //Tags
     }
     private void btnTagsDeletar(object sender, EventArgs e)
     {
-        ListViewItem itemSelecionado = listView.SelectedItems[0];
-        new TagsDeletar(Convert.ToInt32(itemSelecionado.Text)).Show();
+        if (listView.SelectedItems.Count > 0)
+        {
+            ListViewItem itemSelecionado = listView.SelectedItems[0];
+            new TagsDeletar(Convert.ToInt32(itemSelecionado.Text)).Show();
+        }
+        else
+        {
+            MessageBox.Show("Não há itens selecionados");
+        }
     }
     private void btnTagsAtualizar(object sender, EventArgs e)
     {
-        ListViewItem itemSelecionado = listView.SelectedItems[0];
-        new TagsInserir(Convert.ToInt32(itemSelecionado.Text)).Show();
+        if (listView.SelectedItems.Count > 0)
+        {
+            ListViewItem itemSelecionado = listView.SelectedItems[0];
+            new TagsInserir(Convert.ToInt32(itemSelecionado.Text)).Show();
+        }
+        else
+        {
+            MessageBox.Show("Não há itens selecionados");
+        }
     }
 
     private void btnCancelClick(object sender, EventArgs e)
