@@ -58,6 +58,8 @@ namespace Controllers
                 Procedimento = Procedimento;
             }
 
+            Senha.AlterarSenha(Id, Nome, CategoriaId, Url, Usuario, SenhaEncrypt, Procedimento);
+
             return senha;
         }
 
