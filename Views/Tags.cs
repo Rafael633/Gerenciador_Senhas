@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Threading;
 using System.IO;
 using Models;
+using Controllers;
 
 public class Tags : Form //Tags
 {
@@ -39,6 +40,13 @@ public class Tags : Form //Tags
         listView.GridLines = true; 
         listView.AllowColumnReorder = true; 
         listView.Sorting = SortOrder.Ascending;
+
+        foreach (Tag item in TagController.VisualizarTag())
+        {
+            newLine = new ListViewItem(item.Id.ToString());
+            newLine.SubItems.Add(item.Descricao);
+            listView.Items.Add(newLine);
+        }
     
         btnCancel = new Button();    
         btnCancel.Text = "Cancelar";    
