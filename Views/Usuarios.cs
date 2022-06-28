@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Threading;
 using System.IO;
 using Models;
+using Controllers;
 
 public class Usuarios : Form //Usuario
 {
@@ -41,6 +42,15 @@ public class Usuarios : Form //Usuario
         listView.GridLines = true;
         listView.AllowColumnReorder = true;
         listView.Sorting = SortOrder.Ascending;
+
+        foreach (Usuario item in UsuarioController.VisualizarUsuario())
+        {
+            newLine = new ListViewItem(item.Id.ToString());
+            newLine.SubItems.Add(item.Nome);
+            newLine.SubItems.Add(item.Email);
+            newLine.SubItems.Add(item.Senha);
+            listView.Items.Add(newLine);
+        }
 
         btnCancel = new Button();
         btnCancel.Text = "Cancelar";
@@ -81,13 +91,27 @@ public class Usuarios : Form //Usuario
     }
     private void btnUsuarioDeletar(object sender, EventArgs e)
     {
-        ListViewItem itemSelecionado = listView.SelectedItems[0];
-        new UsuarioDeletar(Convert.ToInt32(itemSelecionado.Text)).Show();
+        if (listView.SelectedItems.Count > 0)
+        {
+            ListViewItem itemSelecionado = listView.SelectedItems[0];
+            new UsuarioDeletar(Convert.ToInt32(itemSelecionado.Text)).Show();
+        }
+        else
+        {
+            MessageBox.Show("Não há itens selecionados");
+        }
     }
     private void btnUsuarioAtualizar(object sender, EventArgs e)
     {
-        ListViewItem itemSelecionado = listView.SelectedItems[0];
-        new UsuarioInserir(Convert.ToInt32(itemSelecionado.Text)).Show();
+        if (listView.SelectedItems.Count > 0)
+        {
+            ListViewItem itemSelecionado = listView.SelectedItems[0];
+            new UsuarioInserir(Convert.ToInt32(itemSelecionado.Text)).Show();
+        }
+        else
+        {
+            MessageBox.Show("Não há itens selecionados");
+        }
     }
 
     private void btnCancelClick(object sender, EventArgs e)
