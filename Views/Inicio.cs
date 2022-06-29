@@ -14,7 +14,7 @@ public class Inicio : Form //Tela Inicial
     private System.ComponentModel.IContainer components = null;
 
     Label lblLogin;
-    Label lblHome;
+    Label lblMessage;
 
     Button btnCategorias;
     Button btnTags;
@@ -26,9 +26,9 @@ public class Inicio : Form //Tela Inicial
     {
         Size = new Size(320, 245);
         
-        this.lblHome = new Label();
-        this.lblHome.Text = $"Olá {Usuario.UsuarioAuth.Nome}";
-        this.lblHome.Location = new Point(122, 28);
+        this.lblMessage = new Label();
+        this.lblMessage.Text = $"Olá {Usuario.UsuarioAuth.Nome}";
+        this.lblMessage.Location = new Point(122, 28);
 
         this.btnCategorias = new Button();
         this.btnCategorias.Text = "Categorias";
@@ -61,7 +61,7 @@ public class Inicio : Form //Tela Inicial
         this.btnCancel.Click += new EventHandler(this.handleCancelClick);
         
         this.Controls.Add(this.lblLogin);
-        this.Controls.Add(this.lblHome);
+        this.Controls.Add(this.lblMessage);
         this.Controls.Add(this.btnCategorias);
         this.Controls.Add(this.btnTags);
         this.Controls.Add(this.btnSenhas);
