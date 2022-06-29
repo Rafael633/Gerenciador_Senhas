@@ -14,6 +14,7 @@ public class Inicio : Form //Tela Inicial
     private System.ComponentModel.IContainer components = null;
 
     Label lblLogin;
+    Label lblHome;
 
     Button btnCategorias;
     Button btnTags;
@@ -25,27 +26,31 @@ public class Inicio : Form //Tela Inicial
     {
         Size = new Size(320, 245);
         
+        this.lblHome = new Label();
+        this.lblHome.Text = $"Olá {Usuario.UsuarioAuth.Nome}";
+        this.lblHome.Location = new Point(122, 28);
+
         this.btnCategorias = new Button();
         this.btnCategorias.Text = "Categorias";
-        this.btnCategorias.Location = new Point(40, 60);
+        this.btnCategorias.Location = new Point(40, 70);
         this.btnCategorias.Size = new Size(100, 30);
         this.btnCategorias.Click += new EventHandler(this.handleCategoriasClick);
 
         this.btnTags = new Button();
         this.btnTags.Text = "Tags";
-        this.btnTags.Location = new Point(160, 60);
+        this.btnTags.Location = new Point(160, 70);
         this.btnTags.Size = new Size(100, 30);
         this.btnTags.Click += new EventHandler(this.handleTagsClick);
 
         this.btnSenhas = new Button();
         this.btnSenhas.Text = "Senhas";
-        this.btnSenhas.Location = new Point(40, 100);
+        this.btnSenhas.Location = new Point(40, 110);
         this.btnSenhas.Size = new Size(100, 30);
         this.btnSenhas.Click += new EventHandler(this.handleSenhasClick);
 
         this.btnUsuario = new Button();
         this.btnUsuario.Text = "Usuário";
-        this.btnUsuario.Location = new Point(160, 100);
+        this.btnUsuario.Location = new Point(160, 110);
         this.btnUsuario.Size = new Size(100, 30);
         this.btnUsuario.Click += new EventHandler(this.handleUsuarioClick);
 
@@ -56,6 +61,7 @@ public class Inicio : Form //Tela Inicial
         this.btnCancel.Click += new EventHandler(this.handleCancelClick);
         
         this.Controls.Add(this.lblLogin);
+        this.Controls.Add(this.lblHome);
         this.Controls.Add(this.btnCategorias);
         this.Controls.Add(this.btnTags);
         this.Controls.Add(this.btnSenhas);
