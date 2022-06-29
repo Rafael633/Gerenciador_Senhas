@@ -35,30 +35,16 @@ namespace Controllers
 
         public static Senha AlterarSenha(int Id, string Nome, int CategoriaId, string Url, string Usuario, string SenhaEncrypt, string Procedimento)
         {
-            Senha senha = GetSenha(Id);
-
-            if(!String.IsNullOrEmpty(Nome))
+            Senha senha = Models.Senha.GetSenha(Id);
+            if (!String.IsNullOrEmpty(Nome) && !String.IsNullOrEmpty(Url) && !String.IsNullOrEmpty(Usuario) && !String.IsNullOrEmpty(SenhaEncrypt) && !String.IsNullOrEmpty(Procedimento) && CategoriaId != 0)
             {
-                Nome = Nome;
+                senha.Nome = Nome;
+                senha.Url = Url;
+                senha.Usuario = Usuario;
+                senha.SenhaEncrypt = SenhaEncrypt;
+                senha.Procedimento = Procedimento;
+                senha.CategoriaId = CategoriaId;
             }
-            if(!String.IsNullOrEmpty(Url))
-            {
-                Url = Url;
-            }
-            if(!String.IsNullOrEmpty(Usuario))
-            {
-                Usuario = Usuario;
-            }
-            if(!String.IsNullOrEmpty(SenhaEncrypt))
-            {
-                SenhaEncrypt = SenhaEncrypt;
-            }
-            if(!String.IsNullOrEmpty(Procedimento))
-            {
-                Procedimento = Procedimento;
-            }
-
-            Senha.AlterarSenha(Id, Nome, CategoriaId, Url, Usuario, SenhaEncrypt, Procedimento);
 
             return senha;
         }
@@ -88,7 +74,7 @@ namespace Controllers
 
         public static IEnumerable<Senha> VisualizarSenha()
         {
-            return Senha.GetSenhas();
+            return Models.Senha.GetSenhas();
         }
     }
 }
