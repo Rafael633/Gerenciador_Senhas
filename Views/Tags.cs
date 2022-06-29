@@ -21,6 +21,7 @@ public class Tags : Form //Tags
 
     ListView listView;
     ListViewItem newLine;
+
     public Tags()
     {
         this.ClientSize = new System.Drawing.Size(500, 450);
@@ -79,11 +80,13 @@ public class Tags : Form //Tags
         this.Controls.Add(this.btnDeletar);
         this.Controls.Add(this.btnUpdate);
     }
+
     private void btnTagsInserir(object sender, EventArgs e)
     {
         TagsInserir form = new TagsInserir();
         form.Show();
     }
+
     private void btnTagsDeletar(object sender, EventArgs e)
     {
         if (listView.SelectedItems.Count > 0)
@@ -96,6 +99,7 @@ public class Tags : Form //Tags
             MessageBox.Show("Não há itens selecionados");
         }
     }
+    
     private void btnTagsAtualizar(object sender, EventArgs e)
     {
         if (listView.SelectedItems.Count > 0)

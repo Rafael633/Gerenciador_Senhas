@@ -69,26 +69,31 @@ public class Inicio : Form //Tela Inicial
         this.Controls.Add(this.btnCancel);
 
     }
+
     private void handleCategoriasClick(object sender, EventArgs e)
     {
         Categorias menu = new Categorias();
         menu.ShowDialog();
     }
+
     private void handleTagsClick(object sender, EventArgs e)
     {
         Tags menu = new Tags();
         menu.ShowDialog();
     }
+
     private void handleSenhasClick(object sender, EventArgs e)
     {
         Senhas menu = new Senhas();
         menu.ShowDialog();
     }
+
     private void handleUsuarioClick(object sender, EventArgs e)
     {
         Usuarios menu = new Usuarios();
         menu.ShowDialog();
     }
+    
     private void handleCancelClick(object sender, EventArgs e)
     {
         this.Close();

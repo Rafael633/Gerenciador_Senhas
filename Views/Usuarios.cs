@@ -89,6 +89,7 @@ public class Usuarios : Form //Usuario
         UsuarioInserir form = new UsuarioInserir();
         form.Show();
     }
+
     private void btnUsuarioDeletar(object sender, EventArgs e)
     {
         if (listView.SelectedItems.Count > 0)
@@ -101,6 +102,7 @@ public class Usuarios : Form //Usuario
             MessageBox.Show("Não há itens selecionados");
         }
     }
+    
     private void btnUsuarioAtualizar(object sender, EventArgs e)
     {
         if (listView.SelectedItems.Count > 0)

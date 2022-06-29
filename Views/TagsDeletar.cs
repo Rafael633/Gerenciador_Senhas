@@ -52,6 +52,7 @@ public class TagsDeletar : Form //Deletar Tags
         this.ClientSize = new System.Drawing.Size(200, 140);
         this.StartPosition = FormStartPosition.CenterScreen;
     }
+    
     private void btnConfirmClick(object sender, EventArgs e)
     {
         try

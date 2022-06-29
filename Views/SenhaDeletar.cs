@@ -52,6 +52,7 @@ public class SenhaDeletar : Form //Deletar Senha
         this.ClientSize = new System.Drawing.Size(200, 140);
         this.StartPosition = FormStartPosition.CenterScreen;
     }
+    
     private void btnConfirmClick(object sender, EventArgs e)
     {
         try
