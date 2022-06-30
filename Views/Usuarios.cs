@@ -24,6 +24,9 @@ public class Usuarios : Form //Usuario
 
     public Usuarios()
     {
+        this.MinimizeBox = false;
+        this.MaximizeBox = false;
+        
         this.ClientSize = new System.Drawing.Size(500, 450);
 
         lblUsuario = new Label();

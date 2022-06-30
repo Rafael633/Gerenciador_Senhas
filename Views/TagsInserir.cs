@@ -25,6 +25,9 @@ public class TagsInserir : Form //Inserir e Atualizar Tags
 
     public TagsInserir(int id = 0)
     {
+        this.MinimizeBox = false;
+        this.MaximizeBox = false;
+        
         this.ClientSize = new System.Drawing.Size(300, 215);
 
         lblDescricao = new Label();

@@ -25,6 +25,10 @@ public class Login : Form //Tela de Login
 
     public Login()
     {
+        this.MinimizeBox = false;
+        this.MaximizeBox = false;
+
+        this.MaximizeBox = false;
         this.ClientSize = new System.Drawing.Size(300, 300);
 
         this.lblUser = new Label();

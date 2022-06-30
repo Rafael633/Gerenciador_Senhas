@@ -39,6 +39,9 @@ public class SenhaInserir : Form //Inserir e Atualizar Senha
 
     public SenhaInserir(int id = 0)
     {
+        this.MinimizeBox = false;
+        this.MaximizeBox = false;
+        
         this.ClientSize = new System.Drawing.Size(300, 680);
 
         this.lblNome = new Label();

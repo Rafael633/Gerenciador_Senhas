@@ -22,6 +22,9 @@ public class TagsDeletar : Form //Deletar Tags
 
     public TagsDeletar(int id)
     {
+        this.MinimizeBox = false;
+        this.MaximizeBox = false;
+        
         this.id = id;
 
         lblDeletar = new Label();

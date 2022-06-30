@@ -24,6 +24,9 @@ public class Categorias : Form //Categorias
     
     public Categorias()
     {
+        this.MinimizeBox = false;
+        this.MaximizeBox = false;
+        
         this.ClientSize = new System.Drawing.Size(500, 450);
 
         lblCategorias = new Label();

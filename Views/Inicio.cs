@@ -24,6 +24,9 @@ public class Inicio : Form //Tela Inicial
 
     public Inicio()
     {
+        this.MinimizeBox = false;
+        this.MaximizeBox = false;
+        
         Size = new Size(320, 245);
         
         this.lblMessage = new Label();

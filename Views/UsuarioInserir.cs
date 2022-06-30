@@ -29,6 +29,9 @@ public class UsuarioInserir : Form //Inserir e Atualizar Usuario
 
     public UsuarioInserir(int id = 0)
     {
+        this.MinimizeBox = false;
+        this.MaximizeBox = false;
+        
         this.ClientSize = new System.Drawing.Size(300, 285);
 
         this.lblNome = new Label();

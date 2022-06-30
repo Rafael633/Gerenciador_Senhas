@@ -22,6 +22,9 @@ public class CategoriaDeletar : Form //Deletar Categoria
 
     public CategoriaDeletar(int id)
     {
+        this.MinimizeBox = false;
+        this.MaximizeBox = false;
+        
         this.id = id;
         
         lblDeletar = new Label();

@@ -27,6 +27,9 @@ public class CategoriaInserir : Form //Inserir e Atualizar Categoria
 
     public CategoriaInserir(int id = 0)
     {
+        this.MinimizeBox = false;
+        this.MaximizeBox = false;
+        
         this.ClientSize = new System.Drawing.Size(300, 215);
 
         lblNome = new Label();
